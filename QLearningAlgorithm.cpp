@@ -38,6 +38,22 @@ int main (){
         }
     }
 
+    // The # of trials for computer to learn, usually the # is big
+    int episode = 1000;
+
+    // Constant for learning rate
+    double y = 0.8;
+
+    // Seed for random number generator
+    srand(time(0));
+
+    // Apply Q-learning algorithm
+    QLearningAlgorithm(Reward, QTable, y, episode);
+
+    cout << "The Q table after " << episode << " episodes is : "  << endl << endl;
+    printArray(QTable); 
+    cout << endl;
+
     return 0;
 }
 
