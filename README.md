@@ -4,6 +4,9 @@
 This repository contains a C++ implementation of the Q-Learning algorithm applied to a simple grid world problem. The grid world consists of states represented by rows and actions represented by columns. 
 The goal is to reach a specific state denoted by **`F`** from any staring point.
 
+![alt text](<Screenshot from 2024-03-25 14-49-46.png>)
+
+
 ![image](https://github.com/SarahAbuirmeileh/QLearningAlgorithm/assets/127017088/122e742f-4a92-4ae9-8fdb-7c526a423338)
 
 <br> <br>
