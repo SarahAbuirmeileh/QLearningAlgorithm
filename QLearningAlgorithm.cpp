@@ -12,6 +12,8 @@ const int columns = 6;
 // The headers for all functions
 void printArray(int array[rows][columns]);
 void initializeRewardArray(int Reward[rows][columns]);
+int getRandomPossibleAction(int state, int Reward[rows][columns]);
+void QLearningAlgorithm(int Reward[rows][columns], int QTable[rows][columns], double y, int episodes);
 
 int main (){
 
@@ -76,4 +78,51 @@ void initializeRewardArray(int Reward[rows][columns]){
             }
         }
     }
+}
+
+
+void QLearningAlgorithm(int Reward[rows][columns], int QTable[rows][columns], double y, int episodes){
+    
+    // Loop for all episodes
+    while(episodes--){
+
+        // Choose a random starting state from all states which are represented via rows
+        int state = rand() % rows;
+
+        // Do while the goal is not reached, in this case while the state != 5 
+        while (true){
+            
+            // Select one random action from this state call it x, this action should be possible 
+            int x = getRandomPossibleAction(state, Reward);
+  
+            // Get the maximum Q from the x row using QTable
+            int maximumQ = -1;
+            for (int i = 0; i < columns; i++){
+                maximumQ = max(maximumQ, QTable[x][i]);
+            }
+
+            // Update the QTable according to this equation
+            QTable[state][x] = Reward[state][x] + y * maximumQ;
+
+            // Update the state to be the next state which has been chosen randomly
+            state = x;
+            if (x == 5){
+                break;;
+            }
+        } 
+    }
+}
+
+int getRandomPossibleAction(int state, int Reward[rows][columns]){
+
+    // Select random action, this action should be possible 
+    while (true){ 
+
+        int randomAction = rand() % columns;
+
+        // If it's possible action break
+        if (Reward[state][randomAction] != -1 ){
+            return randomAction;
+        }
+    } 
 }
