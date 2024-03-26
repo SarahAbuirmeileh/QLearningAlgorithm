@@ -1,7 +1,9 @@
+//  Team Members 👩🏻‍💻👩🏻‍💻
+// - Sarah Abu irmeileh
+// - Asia Shalaldah  
+
 #include <iostream>
 #include <cmath>
-#include <cstdlib>
-#include <ctime>
 
 using namespace std;
 
